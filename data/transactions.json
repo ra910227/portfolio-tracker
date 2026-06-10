@@ -1,0 +1,56 @@
+{
+  "transactions": [
+    {
+      "week": "W24",
+      "date": "2026-06-10",
+      "account": "V",
+      "action": "buy",
+      "code": "0050",
+      "name": "元大台灣50",
+      "market": "TW",
+      "shares": 2000,
+      "amount_twd": 201286,
+      "cost_per_share": 100.643,
+      "note": "普通買進"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-10",
+      "account": "V",
+      "action": "buy",
+      "code": "0050",
+      "name": "元大台灣50",
+      "market": "TW",
+      "shares": 1000,
+      "amount_twd": 101894,
+      "cost_per_share": 101.894,
+      "note": "普通買進"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-10",
+      "account": "V",
+      "action": "buy",
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "shares": 30,
+      "amount_twd": 68647,
+      "cost_per_share": 2288.23,
+      "note": "盤中零股"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-10",
+      "account": "V",
+      "action": "buy",
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "shares": 30,
+      "amount_twd": 68347,
+      "cost_per_share": 2278.23,
+      "note": "盤中零股"
+    }
+  ]
+}
