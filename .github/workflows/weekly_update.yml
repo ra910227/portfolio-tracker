@@ -2,38 +2,38 @@ name: Weekly Portfolio Report
 
 on:
   schedule:
-      - cron: '30 8 * * 5'
-        workflow_dispatch:
+    - cron: '30 8 * * 5'
+  workflow_dispatch:
 
-        jobs:
-          generate-report:
-              runs-on: ubuntu-latest
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
 
-                  permissions:
-                        contents: write
+    permissions:
+      contents: write
 
-                            steps:
-                                  - name: Checkout repository
-                                          uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-                                                - name: Set up Python
-                                                        uses: actions/setup-python@v5
-                                                                with:
-                                                                          python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-                                                                                - name: Install dependencies
-                                                                                        run: |
-                                                                                                  pip install requests
+      - name: Install dependencies
+        run: |
+          pip install requests
 
-                                                                                                        - name: Run report generator
-                                                                                                                run: |
-                                                                                                                          cd $GITHUB_WORKSPACE
-                                                                                                                                    python scripts/update_report.py
-                                                                                                                                    
-                                                                                                                                          - name: Commit and push updated report
-                                                                                                                                                  run: |
-                                                                                                                                                            git config --global user.name "Portfolio Bot"
-                                                                                                                                                                      git config --global user.email "bot@portfolio-tracker"
-                                                                                                                                                                                git add docs/ data/weekly_prices.json
-                                                                                                                                                                                          git diff --staged --quiet || git commit -m "Auto update: $(date +'%Y-%m-%d') weekly report"
-                                                                                                                                                                                                    git push
+      - name: Run report generator
+        run: |
+          cd $GITHUB_WORKSPACE
+          python scripts/update_report.py
+
+      - name: Commit and push updated report
+        run: |
+          git config --global user.name "Portfolio Bot"
+          git config --global user.email "bot@portfolio-tracker"
+          git add docs/ data/weekly_prices.json
+          git diff --staged --quiet || git commit -m "Auto update: $(date +'%Y-%m-%d') weekly report"
+          git push
