@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投資週報 W24｜2026/06/08–2026/06/12</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #f4f6fb; color: #1a2035; font-family: 'Noto Sans TC', sans-serif; font-size: 13px; line-height: 1.6; padding-bottom: 60px; }
+.header { background: linear-gradient(135deg, #1a2a6c, #2a4a9c, #1a3a7c); padding: 28px 28px 22px; color: #fff; }
+.header-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.header h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.04em; }
+.week-badge { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35); border-radius: 6px; padding: 4px 12px; font-size: 12px; font-family: 'DM Mono', monospace; font-weight: 600; }
+.header .date { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 4px; font-family: 'DM Mono', monospace; }
+.summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+.sum-card { background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 12px 14px; }
+.sum-card .label { font-size: 9px; color: rgba(255,255,255,0.65); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+.sum-card .value { font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 600; color: #fff; }
+.sum-card .sub { font-size: 9px; color: rgba(255,255,255,0.55); margin-top: 2px; font-family: 'DM Mono', monospace; }
+.sum-card.pos .value { color: #7fffcf; }
+.sum-card.gold .value { color: #ffe57a; }
+.sum-card.warn .value { color: #fbbf24; }
+.main { padding: 20px 28px; }
+.sec-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7a99; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.sec-title::after { content: ''; flex: 1; height: 1px; background: #dde2ef; }
+.tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid #dde2ef; background: #fff; margin-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+thead tr { background: #f0f3fa; }
+thead th { padding: 9px 12px; text-align: right; font-size: 10px; font-weight: 700; color: #3a4a6a; letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap; border-bottom: 1px solid #dde2ef; }
+thead th:first-child, thead th:nth-child(2), thead th:nth-child(3) { text-align: left; }
+tbody tr { border-bottom: 1px solid #edf0f7; }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #f7f9ff; }
+tbody td { padding: 9px 12px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; color: #1a2035; white-space: nowrap; }
+tbody td:first-child, tbody td:nth-child(2), tbody td:nth-child(3) { text-align: left; font-family: 'Noto Sans TC', sans-serif; }
+tfoot tr { background: #f0f3fa; }
+tfoot td { padding: 10px 12px; text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 700; color: #1a2035; border-top: 2px solid #dde2ef; white-space: nowrap; }
+tfoot td:first-child, tfoot td:nth-child(2) { text-align: left; font-family: 'Noto Sans TC', sans-serif; }
+.pos { color: #059669 !important; font-weight: 600; }
+.neg { color: #dc2626 !important; font-weight: 600; }
+.dim { color: #9ca3af !important; }
+.pend { color: #d97706 !important; font-style: italic; }
+.badge { display: inline-block; font-size: 9px; padding: 1px 7px; border-radius: 3px; font-weight: 700; font-family: 'DM Mono', monospace; }
+.badge-buy { background: #dcfce7; color: #15803d; }
+.badge-sell { background: #fee2e2; color: #b91c1c; }
+.badge-none { background: #f3f4f6; color: #6b7a99; }
+.badge-tw { background: #dbeafe; color: #1d4ed8; }
+.new-buy { background: #f0fdf4 !important; }
+.new-buy td:first-child { border-left: 3px solid #22c55e; }
+.perf-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.perf-card { background: #fff; border: 1px solid #dde2ef; border-radius: 10px; padding: 12px 14px; }
+.perf-card .lbl { font-size: 9px; color: #6b7a99; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; }
+.perf-card .prev { font-family: 'DM Mono', monospace; font-size: 10px; color: #9ca3af; margin-bottom: 2px; }
+.perf-card .curr { font-family: 'DM Mono', monospace; font-size: 15px; font-weight: 700; color: #1a2035; }
+.perf-card .chg { font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 700; margin-top: 3px; }
+.chg.pos { color: #059669; }
+.chg.neg { color: #dc2626; }
+.chg.pend { color: #d97706; font-style: italic; }
+.footnote { font-size: 10px; color: #9ca3af; margin-top: 20px; padding: 0 2px; line-height: 1.8; }
+.auto-badge { background: #dcfce7; color: #15803d; border: 1px solid #86efac; border-radius: 4px; padding: 2px 8px; font-size: 9px; font-family: 'DM Mono', monospace; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>📋 投資週報 <span class="auto-badge">AUTO</span></h1>
+      <div class="date">週期：2026/06/08 – 2026/06/12（W24）｜自動更新：2026/06/10</div>
+    </div>
+    <div class="week-badge">W24</div>
+  </div>
+  <div class="summary-grid">
+    <div class="sum-card"><div class="label">期末總資產</div><div class="value">17,078,226</div><div class="sub">TWD</div></div>
+    <div class="sum-card gold"><div class="label">可用現金</div><div class="value">5,992,384</div><div class="sub">三帳戶合計</div></div>
+    <div class="sum-card pos"><div class="label">未實現損益</div><div class="value">+39.90%</div><div class="sub">3,161,989 TWD</div></div>
+    <div class="sum-card"><div class="label">本週買進</div><div class="value">440,174</div><div class="sub">TWD</div></div>
+    <div class="sum-card"><div class="label">持股比</div><div class="value">64.9%</div><div class="sub">目標 85%</div></div>
+    <div class="sum-card warn"><div class="label">加碼預算剩餘</div><div class="value">3,199,265</div><div class="sub">TWD</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<div class="sec-title">📈 本週各標的報酬率</div>
+<div class="perf-grid">
+    <div class="perf-card">
+      <div class="lbl">台股加權指數</div>
+      <div class="prev">W23末：45,683.00</div>
+      <div class="curr pend">—</div>
+      <div class="chg pend">待更新</div>
+    </div>
+    <div class="perf-card">
+      <div class="lbl">元大台灣50 0050</div>
+      <div class="prev">W23末：94.90</div>
+      <div class="curr">100.25</div>
+      <div class="chg pos">+5.64%</div>
+    </div>
+    <div class="perf-card">
+      <div class="lbl">台積電 2330</div>
+      <div class="prev">W23末：2,365.00</div>
+      <div class="curr">2,255.00</div>
+      <div class="chg neg">-4.65%</div>
+    </div>
+    <div class="perf-card">
+      <div class="lbl">00981A 觸發觀察</div>
+      <div class="prev">W23末：29.89</div>
+      <div class="curr pend">—</div>
+      <div class="chg pend">待更新</div>
+    </div>
+    <div class="perf-card">
+      <div class="lbl">00990A 主動元大AI</div>
+      <div class="prev">W23末：20.25</div>
+      <div class="curr">18.54</div>
+      <div class="chg neg">-8.44%</div>
+    </div>
+    <div class="perf-card">
+      <div class="lbl">安聯科技基金</div>
+      <div class="prev">上次淨值 6/5：783.29</div>
+      <div class="curr pend">—</div>
+      <div class="chg pend">待更新</div>
+    </div>
+    <div class="perf-card">
+      <div class="lbl">QQQ（USD）</div>
+      <div class="prev">W23末：715.40</div>
+      <div class="curr">710.12</div>
+      <div class="chg neg">-0.74%</div>
+    </div></div>
+<p style="font-size:10px;color:#9ca3af;margin-bottom:20px;">
+  ※ 安聯台灣科技基金：淨值待公告（T+1更新）｜報酬率 = (本週收盤 − W23末收盤) ÷ W23末收盤
+</p>
+
+<div class="sec-title">🔄 當週交易明細</div>
+<div class="tbl-wrap"><table>
+  <thead><tr>
+    <th>日期</th><th>標的</th><th>類別</th><th>帳戶</th>
+    <th>股數</th><th>成本均價</th><th>應收付(TWD)</th><th>備註</th>
+  </tr></thead>
+  <tbody>
+      <tr class="new-buy">
+        <td>06-10</td>
+        <td>元大台灣50 0050</td>
+        <td><span class="badge badge-buy">買進</span></td>
+        <td>V帳</td>
+        <td>2,000</td>
+        <td>100.64</td>
+        <td>201,286</td>
+        <td class="dim">普通買進</td>
+      </tr>
+      <tr class="new-buy">
+        <td>06-10</td>
+        <td>元大台灣50 0050</td>
+        <td><span class="badge badge-buy">買進</span></td>
+        <td>V帳</td>
+        <td>1,000</td>
+        <td>101.89</td>
+        <td>101,894</td>
+        <td class="dim">普通買進</td>
+      </tr>
+      <tr class="new-buy">
+        <td>06-10</td>
+        <td>台積電 2330</td>
+        <td><span class="badge badge-buy">買進</span></td>
+        <td>V帳</td>
+        <td>30</td>
+        <td>2,288.23</td>
+        <td>68,647</td>
+        <td class="dim">盤中零股</td>
+      </tr>
+      <tr class="new-buy">
+        <td>06-10</td>
+        <td>台積電 2330</td>
+        <td><span class="badge badge-buy">買進</span></td>
+        <td>V帳</td>
+        <td>30</td>
+        <td>2,278.23</td>
+        <td>68,347</td>
+        <td class="dim">盤中零股</td>
+      </tr></tbody>
+  <tfoot><tr><td colspan="4">本週合計</td><td>—</td><td>—</td><td>440,174</td><td></td></tr></tfoot>
+</table></div>
+
+<div class="sec-title">📊 本週新增持倉報酬追蹤</div>
+<div class="tbl-wrap"><table>
+  <thead><tr>
+    <th>標的</th><th>帳戶</th><th>買進股數</th><th>合併均價</th>
+    <th>買入成本</th><th>現價</th><th>現值</th><th>損益</th><th>報酬率</th>
+  </tr></thead>
+  <tbody>
+      <tr>
+        <td>元大台灣50 0050</td>
+        <td>V帳</td>
+        <td>3,000</td>
+        <td>101.06</td>
+        <td>303,180</td>
+        <td>100.25</td>
+        <td>300,750</td>
+        <td class="neg">-2,430</td>
+        <td class="neg">-0.80%</td>
+      </tr>
+      <tr>
+        <td>台積電 2330</td>
+        <td>V帳</td>
+        <td>60</td>
+        <td>2,283.23</td>
+        <td>136,994</td>
+        <td>2,255.00</td>
+        <td>135,300</td>
+        <td class="neg">-1,694</td>
+        <td class="neg">-1.24%</td>
+      </tr></tbody>
+  <tfoot><tr><td colspan="4">合計</td><td>440,174</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tfoot>
+</table></div>
+
+<div class="sec-title">📋 完整持倉快照</div>
+<div class="tbl-wrap"><table>
+  <thead><tr>
+    <th>標的</th><th>代碼</th><th>帳戶</th><th>股數</th>
+    <th>成本均價</th><th>現價</th><th>成本(TWD)</th><th>市值(TWD)</th>
+    <th>損益(TWD)</th><th>報酬率</th>
+  </tr></thead>
+  <tbody>
+      <tr>
+        <td>🇹🇼 台積電</td>
+        <td class="dim">2330</td>
+        <td>V帳</td>
+        <td>386</td>
+        <td>1,720.07</td>
+        <td>2,255.00</td>
+        <td>664,146</td>
+        <td>870,430</td>
+        <td class="pos">206,284</td>
+        <td class="pos">+31.06%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 台積電</td>
+        <td class="dim">2330</td>
+        <td>B帳</td>
+        <td>300</td>
+        <td>937.61</td>
+        <td>2,255.00</td>
+        <td>281,082</td>
+        <td>676,500</td>
+        <td class="pos">395,418</td>
+        <td class="pos">+140.68%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 元大台灣50</td>
+        <td class="dim">0050</td>
+        <td>V帳</td>
+        <td>3,252</td>
+        <td>66.15</td>
+        <td>100.25</td>
+        <td>215,126</td>
+        <td>326,013</td>
+        <td class="pos">110,887</td>
+        <td class="pos">+51.55%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 廣達</td>
+        <td class="dim">2382</td>
+        <td>V帳</td>
+        <td>500</td>
+        <td>253.17</td>
+        <td>380.50</td>
+        <td>126,587</td>
+        <td>190,250</td>
+        <td class="pos">63,663</td>
+        <td class="pos">+50.29%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 台光電</td>
+        <td class="dim">2383</td>
+        <td>V帳</td>
+        <td>100</td>
+        <td>1,391.05</td>
+        <td>4,940.00</td>
+        <td>139,105</td>
+        <td>494,000</td>
+        <td class="pos">354,895</td>
+        <td class="pos">+255.13%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 台光電</td>
+        <td class="dim">2383</td>
+        <td>B帳</td>
+        <td>150</td>
+        <td>995.05</td>
+        <td>4,940.00</td>
+        <td>149,257</td>
+        <td>741,000</td>
+        <td class="pos">591,743</td>
+        <td class="pos">+396.46%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 聯亞</td>
+        <td class="dim">3081</td>
+        <td>V帳</td>
+        <td>50</td>
+        <td>2,707.58</td>
+        <td>2,707.58</td>
+        <td>135,379</td>
+        <td>135,379</td>
+        <td class="pos">0</td>
+        <td class="pos">+0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 聯亞</td>
+        <td class="dim">3081</td>
+        <td>B帳</td>
+        <td>500</td>
+        <td>779.53</td>
+        <td>779.53</td>
+        <td>389,763</td>
+        <td>389,765</td>
+        <td class="pos">2</td>
+        <td class="pos">+0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 雙鴻</td>
+        <td class="dim">3324</td>
+        <td>V帳</td>
+        <td>200</td>
+        <td>1,048.39</td>
+        <td>1,048.39</td>
+        <td>209,678</td>
+        <td>209,678</td>
+        <td class="pos">0</td>
+        <td class="pos">+0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 創意</td>
+        <td class="dim">3443</td>
+        <td>V帳</td>
+        <td>40</td>
+        <td>1,551.70</td>
+        <td>4,025.00</td>
+        <td>62,068</td>
+        <td>161,000</td>
+        <td class="pos">98,932</td>
+        <td class="pos">+159.39%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 牧德</td>
+        <td class="dim">3563</td>
+        <td>V帳</td>
+        <td>250</td>
+        <td>566.96</td>
+        <td>692.00</td>
+        <td>141,739</td>
+        <td>173,000</td>
+        <td class="pos">31,261</td>
+        <td class="pos">+22.06%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 健策</td>
+        <td class="dim">3653</td>
+        <td>V帳</td>
+        <td>40</td>
+        <td>2,169.08</td>
+        <td>3,800.00</td>
+        <td>86,763</td>
+        <td>152,000</td>
+        <td class="pos">65,237</td>
+        <td class="pos">+75.19%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 日月光投控</td>
+        <td class="dim">3711</td>
+        <td>V帳</td>
+        <td>300</td>
+        <td>579.37</td>
+        <td>539.00</td>
+        <td>173,811</td>
+        <td>161,700</td>
+        <td class="neg">-12,111</td>
+        <td class="neg">-6.97%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 奇鋐</td>
+        <td class="dim">3017</td>
+        <td>B帳</td>
+        <td>100</td>
+        <td>470.15</td>
+        <td>2,360.00</td>
+        <td>47,015</td>
+        <td>236,000</td>
+        <td class="pos">188,985</td>
+        <td class="pos">+401.97%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 華星光</td>
+        <td class="dim">4979</td>
+        <td>V帳</td>
+        <td>200</td>
+        <td>563.43</td>
+        <td>563.43</td>
+        <td>112,686</td>
+        <td>112,686</td>
+        <td class="neg">-0</td>
+        <td class="neg">-0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 良維</td>
+        <td class="dim">6290</td>
+        <td>V帳</td>
+        <td>750</td>
+        <td>207.11</td>
+        <td>207.11</td>
+        <td>155,331</td>
+        <td>155,332</td>
+        <td class="pos">2</td>
+        <td class="pos">+0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 良維</td>
+        <td class="dim">6290</td>
+        <td>B帳</td>
+        <td>1,000</td>
+        <td>220.86</td>
+        <td>220.86</td>
+        <td>220,862</td>
+        <td>220,860</td>
+        <td class="neg">-2</td>
+        <td class="neg">-0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 光聖</td>
+        <td class="dim">6442</td>
+        <td>V帳</td>
+        <td>40</td>
+        <td>668.03</td>
+        <td>1,890.00</td>
+        <td>26,721</td>
+        <td>75,600</td>
+        <td class="pos">48,879</td>
+        <td class="pos">+182.92%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 兆聯實業</td>
+        <td class="dim">6938</td>
+        <td>V帳</td>
+        <td>200</td>
+        <td>935.48</td>
+        <td>935.48</td>
+        <td>187,095</td>
+        <td>187,096</td>
+        <td class="pos">1</td>
+        <td class="pos">+0.00%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 統一FANG+</td>
+        <td class="dim">00757</td>
+        <td>V帳</td>
+        <td>2,000</td>
+        <td>119.90</td>
+        <td>125.65</td>
+        <td>239,790</td>
+        <td>251,300</td>
+        <td class="pos">11,510</td>
+        <td class="pos">+4.80%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 統一FANG+</td>
+        <td class="dim">00757</td>
+        <td>B帳</td>
+        <td>2,982</td>
+        <td>110.38</td>
+        <td>125.65</td>
+        <td>329,155</td>
+        <td>374,688</td>
+        <td class="pos">45,533</td>
+        <td class="pos">+13.83%</td>
+      </tr>
+      <tr>
+        <td>🇹🇼 主動元大AI新經濟</td>
+        <td class="dim">00990A</td>
+        <td>B帳</td>
+        <td>1,943</td>
+        <td>19.63</td>
+        <td>18.54</td>
+        <td>38,130</td>
+        <td>36,023</td>
+        <td class="neg">-2,107</td>
+        <td class="neg">-5.53%</td>
+      </tr>
+      <tr>
+        <td>📈 安聯台灣科技基金</td>
+        <td class="dim">ALLIANZ</td>
+        <td>A帳</td>
+        <td>2,131</td>
+        <td>532.85</td>
+        <td>532.85</td>
+        <td>1,135,346</td>
+        <td>1,135,343</td>
+        <td class="neg">-3</td>
+        <td class="neg">-0.00%</td>
+      </tr>
+      <tr>
+        <td>🌏 QQQ</td>
+        <td class="dim">QQQ</td>
+        <td>V帳</td>
+        <td>20</td>
+        <td>503.91</td>
+        <td>710.12 USD</td>
+        <td>317,463</td>
+        <td>447,376</td>
+        <td class="pos">129,913</td>
+        <td class="pos">+40.92%</td>
+      </tr>
+      <tr>
+        <td>🌏 QQQ</td>
+        <td class="dim">QQQ</td>
+        <td>B帳</td>
+        <td>16</td>
+        <td>607.73</td>
+        <td>710.12 USD</td>
+        <td>315,726</td>
+        <td>369,085</td>
+        <td class="pos">53,359</td>
+        <td class="pos">+16.90%</td>
+      </tr>
+      <tr>
+        <td>🌏 AAPL</td>
+        <td class="dim">AAPL</td>
+        <td>V帳</td>
+        <td>15</td>
+        <td>185.63</td>
+        <td>289.83 USD</td>
+        <td>85,609</td>
+        <td>133,749</td>
+        <td class="pos">48,140</td>
+        <td class="pos">+56.23%</td>
+      </tr>
+      <tr>
+        <td>🌏 AAPL</td>
+        <td class="dim">AAPL</td>
+        <td>B帳</td>
+        <td>10</td>
+        <td>207.71</td>
+        <td>289.83 USD</td>
+        <td>65,426</td>
+        <td>91,296</td>
+        <td class="pos">25,870</td>
+        <td class="pos">+39.54%</td>
+      </tr>
+      <tr>
+        <td>🌏 AVGO</td>
+        <td class="dim">AVGO</td>
+        <td>V帳</td>
+        <td>10</td>
+        <td>346.35</td>
+        <td>377.45 USD</td>
+        <td>109,013</td>
+        <td>118,897</td>
+        <td class="pos">9,884</td>
+        <td class="pos">+9.07%</td>
+      </tr>
+      <tr>
+        <td>🌏 AVGO</td>
+        <td class="dim">AVGO</td>
+        <td>B帳</td>
+        <td>10</td>
+        <td>346.15</td>
+        <td>377.45 USD</td>
+        <td>108,950</td>
+        <td>118,897</td>
+        <td class="pos">9,947</td>
+        <td class="pos">+9.13%</td>
+      </tr>
+      <tr>
+        <td>🌏 BRK/B</td>
+        <td class="dim">BRK-B</td>
+        <td>V帳</td>
+        <td>7</td>
+        <td>497.72</td>
+        <td>489.70 USD</td>
+        <td>117,299</td>
+        <td>115,383</td>
+        <td class="neg">-1,916</td>
+        <td class="neg">-1.63%</td>
+      </tr>
+      <tr>
+        <td>🌏 BRK/B</td>
+        <td class="dim">BRK-B</td>
+        <td>B帳</td>
+        <td>8</td>
+        <td>497.27</td>
+        <td>489.70 USD</td>
+        <td>131,004</td>
+        <td>129,112</td>
+        <td class="neg">-1,892</td>
+        <td class="neg">-1.44%</td>
+      </tr>
+      <tr>
+        <td>🌏 GOOGL</td>
+        <td class="dim">GOOGL</td>
+        <td>V帳</td>
+        <td>12</td>
+        <td>280.28</td>
+        <td>367.65 USD</td>
+        <td>105,862</td>
+        <td>138,972</td>
+        <td class="pos">33,110</td>
+        <td class="pos">+31.28%</td>
+      </tr>
+      <tr>
+        <td>🌏 GOOGL</td>
+        <td class="dim">GOOGL</td>
+        <td>B帳</td>
+        <td>13</td>
+        <td>335.64</td>
+        <td>367.65 USD</td>
+        <td>137,333</td>
+        <td>150,553</td>
+        <td class="pos">13,220</td>
+        <td class="pos">+9.63%</td>
+      </tr>
+      <tr>
+        <td>🌏 JPM</td>
+        <td class="dim">JPM</td>
+        <td>V帳</td>
+        <td>9</td>
+        <td>303.01</td>
+        <td>313.37 USD</td>
+        <td>85,194</td>
+        <td>88,049</td>
+        <td class="pos">2,855</td>
+        <td class="pos">+3.35%</td>
+      </tr>
+      <tr>
+        <td>🌏 LMT</td>
+        <td class="dim">LMT</td>
+        <td>B帳</td>
+        <td>8</td>
+        <td>463.57</td>
+        <td>528.84 USD</td>
+        <td>116,728</td>
+        <td>133,269</td>
+        <td class="pos">16,541</td>
+        <td class="pos">+14.17%</td>
+      </tr>
+      <tr>
+        <td>🌏 MSFT</td>
+        <td class="dim">MSFT</td>
+        <td>V帳</td>
+        <td>8</td>
+        <td>340.53</td>
+        <td>403.11 USD</td>
+        <td>85,745</td>
+        <td>101,582</td>
+        <td class="pos">15,837</td>
+        <td class="pos">+18.47%</td>
+      </tr>
+      <tr>
+        <td>🌏 NVDA</td>
+        <td class="dim">NVDA</td>
+        <td>V帳</td>
+        <td>100</td>
+        <td>29.83</td>
+        <td>206.57 USD</td>
+        <td>93,883</td>
+        <td>650,696</td>
+        <td class="pos">556,812</td>
+        <td class="pos">+593.09%</td>
+      </tr>
+      <tr>
+        <td>🌏 NVDA</td>
+        <td class="dim">NVDA</td>
+        <td>B帳</td>
+        <td>26</td>
+        <td>182.68</td>
+        <td>206.57 USD</td>
+        <td>150,790</td>
+        <td>170,547</td>
+        <td class="pos">19,757</td>
+        <td class="pos">+13.10%</td>
+      </tr>
+      <tr>
+        <td>🌏 OXY</td>
+        <td class="dim">OXY</td>
+        <td>B帳</td>
+        <td>100</td>
+        <td>42.04</td>
+        <td>57.48 USD</td>
+        <td>132,327</td>
+        <td>181,062</td>
+        <td class="pos">48,735</td>
+        <td class="pos">+36.83%</td>
+      </tr>
+      <tr>
+        <td>🌏 GLD（黃金）</td>
+        <td class="dim">GLD</td>
+        <td>V帳</td>
+        <td>40</td>
+        <td>396.24</td>
+        <td>382.28 USD</td>
+        <td>498,866</td>
+        <td>481,673</td>
+        <td class="neg">-17,193</td>
+        <td class="neg">-3.45%</td>
+      </tr></tbody>
+  <tfoot><tr>
+    <td colspan="3">合計</td><td>—</td><td>—</td><td>—</td>
+    <td>7,923,853</td><td>11,085,842</td>
+    <td class="pos">3,161,989</td>
+    <td class="pos">+39.90%</td>
+  </tr></tfoot>
+</table></div>
+
+<div class="sec-title">📈 週報歷史（下半年累計）</div>
+<div class="tbl-wrap"><table>
+  <thead><tr>
+    <th>週次</th><th>週期</th><th>當週買進</th><th>買進總額</th>
+    <th>期末現金</th><th>加碼預算剩餘</th><th>期末總資產</th>
+    <th>持股比</th><th>本週新增持倉報酬</th><th>整體未實現損益</th>
+  </tr></thead>
+  <tbody>
+      <tr>
+        <td><span class="badge badge-none">W23</span></td>
+        <td>06/02–06/06</td>
+        <td class="dim">基準週，無交易</td>
+        <td class="dim">—</td>
+        <td>5,992,384</td>
+        <td>3,639,439</td>
+        <td>19,012,075</td>
+        <td>65.9%</td>
+        <td class="dim">—</td>
+        <td class="pos">+5,096,064（+68.6%）</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-tw">W24</span></td>
+        <td>2026-06-10</td>
+        <td class="dim">—</td>
+        <td class="dim">—</td>
+        <td class="pend">—</td>
+        <td class="pend">—</td>
+        <td class="pend">—</td>
+        <td class="pend">—</td>
+        <td class="pend">—</td>
+        <td class="pend">—</td>
+      </tr></tbody>
+</table></div>
+
+<div class="footnote">
+  ※ 現價來源：台股 → 台灣證交所 OpenAPI｜美股 → Yahoo Finance｜安聯淨值 → 投信投顧公會（T+1）<br>
+  ※ 海外股票匯率固定 31.5 TWD/USD｜GLD 歸類現金<br>
+  ※ 本報告由 GitHub Actions 每週五 16:30 自動生成｜有交易時請在週五前更新 transactions.json<br>
+  ※ ★ 子帳戶 981r-1581999（V帳內）
+</div>
+</div>
+</body>
+</html>
