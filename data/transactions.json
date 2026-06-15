@@ -2,6 +2,45 @@
   "transactions": [
     {
       "week": "W24",
+      "date": "2026-06-08",
+      "account": "A",
+      "action": "buy",
+      "code": "ALLIANZ",
+      "name": "安聯台灣科技基金",
+      "market": "FUND",
+      "shares": 33.1,
+      "amount_twd": 25000,
+      "cost_per_share": 756.14,
+      "note": "日日扣|元大活儲扣款"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-09",
+      "account": "B",
+      "action": "buy",
+      "code": "00757",
+      "name": "統一FANG+",
+      "market": "TW",
+      "shares": 38,
+      "amount_twd": 4898,
+      "cost_per_share": 128.89,
+      "note": "定期定額"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-09",
+      "account": "B",
+      "action": "buy",
+      "code": "00990A",
+      "name": "主動元大AI新經濟",
+      "market": "TW",
+      "shares": 772,
+      "amount_twd": 14908,
+      "cost_per_share": 19.31,
+      "note": "定期定額"
+    },
+    {
+      "week": "W24",
       "date": "2026-06-10",
       "account": "V",
       "action": "buy",
@@ -20,10 +59,10 @@
       "action": "buy",
       "code": "0050",
       "name": "元大台灣50",
-      "market": "TW",
       "shares": 1000,
       "amount_twd": 101894,
       "cost_per_share": 101.894,
+      "market": "TW",
       "note": "普通買進"
     },
     {
@@ -51,6 +90,71 @@
       "amount_twd": 68347,
       "cost_per_share": 2278.23,
       "note": "盤中零股"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-11",
+      "account": "V",
+      "action": "buy",
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "shares": 11,
+      "amount_twd": 24716,
+      "cost_per_share": 2247.0,
+      "note": "定期定額"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-11",
+      "account": "V",
+      "action": "buy",
+      "code": "2330",
+      "name": "台積電",
+      "market": "TW",
+      "shares": 150,
+      "amount_twd": 334976,
+      "cost_per_share": 2233.17,
+      "note": "盤中零股"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-11",
+      "account": "V",
+      "action": "buy",
+      "code": "3563",
+      "name": "牧德",
+      "market": "TW",
+      "shares": 50,
+      "amount_twd": 34048,
+      "cost_per_share": 680.96,
+      "note": "盤中零股"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-11",
+      "account": "A",
+      "action": "buy",
+      "code": "ALLIANZ",
+      "name": "安聯台灣科技基金",
+      "market": "FUND",
+      "shares": 32.8,
+      "amount_twd": 25000,
+      "cost_per_share": 761.79,
+      "note": "日日扣|元大活儲扣款"
+    },
+    {
+      "week": "W24",
+      "date": "2026-06-11",
+      "account": "V",
+      "action": "buy",
+      "code": "JPM",
+      "name": "JPM",
+      "market": "US",
+      "shares": 1.15903,
+      "amount_twd": 12000,
+      "cost_per_share": 310.91,
+      "note": "定期定額|成交360USD+手續費0.36USD"
     }
   ]
 }
